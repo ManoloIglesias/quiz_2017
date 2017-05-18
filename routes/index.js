@@ -5,14 +5,15 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index');
 });
+// Pagina de ayuda
+router.get('/ayuda', function(req, res, next) {
+    res.render('ayuda');
+});
 
 // Pagina de creditos
 router.get('/author', function(req, res, next) {
     res.render('author');
 });
 
-//Página de ayuda
-router.get('/ayuda', function(req, res, next) {
-    res.render('ayuda');
-});
+
 module.exports = router;
