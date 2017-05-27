@@ -5,9 +5,9 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index');
 });
-// Pagina de ayuda
-router.get('/ayuda', function(req, res, next) {
-    res.render('ayuda');
+// Pagina de help
+router.get('/help', function(req, res, next) {
+    res.render('help');
 });
 
 // Pagina de creditos
