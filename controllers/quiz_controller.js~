@@ -192,7 +192,7 @@ exports.check = function (req, res, next) {
 var n=0;
 //GET /quizzes/random_play
 exports.random_quiz = function(req,res,next){
-	
+
 	models.Quiz.findAll().then(function(quizzes){
 	req.session.nojugados= req.session.nojugados || quizzes;
 	if(n<req.session.nojugados.length){
