@@ -234,3 +234,54 @@ exports.check = function (req, res, next) {
         answer: answer
     });
 };
+
+
+var n=0;
+//GET /quizzes/random_play
+exports.random_quiz = function(req,res,next){
+	
+	models.Quiz.findAll().then(function(quizzes){
+	req.session.nojugados= req.session.nojugados || quizzes;
+	if(n<req.session.nojugados.length){
+	res.render('quizzes/random_play', {
+	quiz : req.session.nojugados[n],
+	score : score
+});
+
+}else{res.render('quizzes/random_nomore', {
+	score:score
+	});
+	score=0;
+	n=0;
+}
+
+})
+	.catch(function(err){
+	console.log("Error:",err);
+});
+
+};
+
+  var score=0;
+// GET/quizzes/random_result
+exports.randomcheck = function(req,res,next){
+
+    var answer = req.query.answer || "";
+  	
+    var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
+	if(result){
+	score++;
+	 n++;	
+}else{
+	score=0;
+	n=0;
+	}
+
+    res.render('quizzes/random_result', {
+        quiz: req.quiz,
+        result: result,
+        answer: answer,
+	score :score
+    });
+
+};
