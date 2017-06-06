@@ -13,7 +13,7 @@
 
             <% } %>
 
-           <% if ((!tip.accepted) &&
+           <% if (tip.accepted &&
                     (session.user && (session.user.id===tip.AuthorId ||(session.user.isAdmin || (quizAuthorId  && quizAuthorId === session.user.id))))) { %>
 
                 <a href="/quizzes/<%= quizId %>/tips/<%= tip.id %>/accept?_method=PUT"><button>Aceptar</button></a>

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    up: function (queryInterface, Sequelize) {
+  up: function (queryInterface, Sequelize) {
 
         return queryInterface.bulkInsert('Quizzes', [
             {
@@ -30,8 +30,10 @@ module.exports = {
             }
         ]);
     },
+  },
 
-    down: function (queryInterface, Sequelize) {
+  down: function (queryInterface, Sequelize) {
+
         return queryInterface.bulkDelete('Quizzes', null, {});
     }
 };
